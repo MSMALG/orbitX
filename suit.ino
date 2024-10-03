@@ -1,18 +1,17 @@
-int SignalLed = 8;    // LED pin
-int Trig = 12;        // Ultrasonic sensor trigger pin
-int Echo = 11;        // Ultrasonic sensor echo pin
+int SignalLed = 8;    
+int Trig = 12;        
+int Echo = 11;        
 
 long pinTravelTime;    // Time for pulse to travel
 float distance;        // Distance measured by the sensor
 const float threshold = 30.0;  // Distance threshold set to exactly 30 cm
 const int numReadings = 5;     // Number of readings to average
 
-// Function to calculate distance from the ultrasonic sensor
+// Calculate distance from the ultrasonic sensor
 float getDistance(int trigPin, int echoPin) {
   long travelTime;
   float totalDistance = 0;
 
-  // Take multiple readings and average them
   for (int i = 0; i < numReadings; i++) {
     // Send a pulse to the ultrasonic sensor
     digitalWrite(trigPin, LOW);
@@ -26,10 +25,8 @@ float getDistance(int trigPin, int echoPin) {
 
     // Calculate the distance in centimeters
     totalDistance += travelTime * 0.034 / 2;
-
     delay(10);  
   }
-
   // Return the average distance
   return totalDistance / numReadings;
 }
@@ -44,8 +41,7 @@ void setup() {
 
 void loop() {
   distance = getDistance(Trig, Echo);
-
-  // Print the distance to the serial monitor
+  // Printing the distance to the serial monitor
   Serial.print("Distance: ");
   Serial.print(distance);
   Serial.println(" cm");
