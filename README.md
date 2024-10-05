@@ -1,5 +1,8 @@
 # Orbit X MVP
 
+## Video Demo
+https://github.com/user-attachments/assets/14866198-910e-41ba-b48b-a801b8c2f485
+
 ## Overview
 This code represents the first version of our NASA Space Apps Challenge submission: **Galactic Games: Fun in a Microgravity Environment**!
 
